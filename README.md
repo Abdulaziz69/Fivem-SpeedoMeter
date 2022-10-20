@@ -12,4 +12,4 @@ in server.cfg
 ensure [Folder name]
 ```
 
-# This script is not ready it's not finished yet
+# it's not finished yet
