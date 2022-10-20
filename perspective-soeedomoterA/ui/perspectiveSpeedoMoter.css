@@ -1,0 +1,272 @@
+body {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 98vh;
+    user-select: none;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.perspective__speedomoter__wraper {
+    position: absolute;
+    right: 5%;
+    bottom: -5%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: transparent;
+    width: 400px;
+    height: 400px;
+}
+
+.perspective__ground {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    transform: perspective(203px) rotateX(-112deg) rotateY(0deg) rotateZ(0deg);
+    background: linear-gradient(0deg, rgba(1,253,235,0.1) 0%, rgba(1,253,235,0.3) 50%, rgba(1,253,235,1) 100%);
+    /* background: linear-gradient(0deg, rgba(250, 2, 62,0.1) 0%, rgba(250, 2, 62,0.3) 50%, rgba(250, 2, 62,1) 100%); */
+    transform-origin: center center;
+    border-left: 7px solid rgba(1,253,235,1);
+    border-right: 7px solid rgba(1,253,235,1);
+    box-shadow: 0 0 10px rgba(1, 253, 235, 1);
+    animation: perspective__ground__transform 1s alternate ease-in-out, perspective__ground__transform__gradint 1.5s alternate ease-in-out;
+    animation-iteration-count: 1;
+}
+
+
+@keyframes perspective__ground__transform__gradint {
+    0% {
+        background-position: 0% 0%, 0 0, 0 100%, 100% 100%;
+        background-size: 3px 0%, 100% 3px, 0% 3px, 3px 0%;
+    }
+    100% {
+        background-position: 0% 0%, 0% 0, 0% 100%, 100% 100%;
+        background-size: 3px 100%, 0% 3px, 0% 3px, 3px 0%;
+    }
+}
+
+@keyframes perspective__ground__transform {
+    from {
+        transform: perspective(100px) rotateX(-112deg) rotateY(0deg) rotateZ(0deg);
+    }
+    to {
+        transform: perspective(203px) rotateX(-112deg) rotateY(0deg) rotateZ(0deg);
+    }
+}
+
+
+
+.perspective__ground__road__lines {
+    background: #fff;
+    width: 10px;
+    height: 10px;
+    margin: 10px;
+}
+
+
+.perspective__Vehicle__image {
+    position: absolute;
+    top: 48%;
+    left: 40%;
+    transform: translateX(100px);
+    animation: perspective__Vehicle__image__transform 1s alternate ease-in-out;
+    animation-iteration-count: 1;
+    transition: all 500ms ease;
+}
+
+
+@keyframes perspective__Vehicle__image__transform {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.perspective__Vehicle__image img {
+    width: 80px;
+    height: 80px;
+}
+
+
+
+.perspective__Vehicle__speed_value {
+    position: absolute;
+    bottom: 50%;
+    left: 40%;
+    color: rgb(1, 253, 235);
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+
+
+
+
+
+/* perspective Vehicle wall start */
+
+.perspective__Vehicle__wall {
+    width: 397px;
+    height: 60px;
+    background: rgba(1,253,235, 0.15);
+    background: linear-gradient(0deg, rgba(1,253,235,0.111) 0%, rgba(1,253,235,0.3) 50%, rgba(1,253,235,.8) 100%);
+    position: absolute;
+    bottom: 17.9%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    animation: perspective__Vehicle__wall__transform 2s alternate ease-in-out;
+    animation-iteration-count: 1;
+}
+
+
+@keyframes perspective__Vehicle__wall__transform {
+    from {
+        transform: rotateX(90deg);
+    }
+    to {
+        transform: rotateX(0deg);
+    }
+}
+
+.perspective__Vehicle__wall svg {
+    width: 30px;
+    height: 30px;
+    fill: #fff;
+}
+
+.perspective__Vehicle__wall svg:nth-of-type(1), .perspective__Vehicle__wall svg:nth-of-type(2){
+    stroke: #fff;
+    stroke-width: 10px;
+}
+
+
+
+
+
+
+
+.perspective__Vehicle__data__right {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+@keyframes perspective__Vehicle__data__right__icon__transform {
+    from {
+        transform: rotateX(90deg);
+    }
+    to {
+        transform: rotateX(0deg);
+    }
+}
+@keyframes perspective__Vehicle__data__left__icon__transform {
+    from {
+        transform: rotateX(90deg);
+    }
+    to {
+        transform: rotateX(0deg);
+    }
+}
+
+.perspective__Vehicle__data__right svg {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.perspective__Vehicle__data__right svg:nth-of-type(1) {
+    bottom: 20%;
+    width: 60px;
+    height: 60px;
+    box-shadow: 5px 5px 30px 15px rgba(253, 195, 2, 0.1), 
+    -5px -5px 30px 15px rgba(253, 195, 2, 0.22);
+    animation: perspective__Vehicle__data__right__icon__transform 1s alternate ease-in-out;
+    animation-iteration-count: 1;
+}
+
+@keyframes perspective__Vehicle__data__right__icon__transform {
+    from {
+        left: 90%;
+        box-shadow: none;
+    }
+    to {
+        left: 50%;
+        box-shadow: 5px 5px 30px 15px rgba(253, 195, 2, 0.1), 
+        -5px -5px 30px 15px rgba(253, 195, 2, 0.22);
+    }
+}
+
+.perspective__Vehicle__data__right svg:nth-of-type(2) {
+    left: 80%;
+    bottom: 0%;
+    width: 100px;
+    height: 100px;
+    box-shadow: 5px 5px 30px 15px rgba(250, 2, 62, 0.1), 
+    -5px -5px 30px 15px rgba(250, 2, 62, 0.22);
+}
+
+
+.perspective__Vehicle__data__left {
+    position: absolute;
+    top: 12%;
+    right: 110%;
+    width: 200px;
+    height: 200px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.perspective__Vehicle__data__left svg {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.perspective__Vehicle__data__left svg:nth-of-type(1) {
+    font-size: 35px;
+    bottom: 20%;
+    right: -60%;
+    width: 60px;
+    height: 60px;
+    box-shadow: 5px 5px 30px 15px rgba(255,105,180, 0.1), 
+    -5px -5px 30px 15px rgba(255,105,180, 0.22);
+    animation: perspective__Vehicle__data__left__icon__transform 1s alternate ease-in-out;
+    animation-iteration-count: 1;
+}
+
+@keyframes perspective__Vehicle__data__left__icon__transform {
+    from {
+        right: -20%;
+        box-shadow: none;
+    }
+    to {
+        right: -60%;
+        box-shadow: 5px 5px 30px 15px rgba(255,105,180, 0.1), 
+        -5px -5px 30px 15px rgba(255,105,180, 0.22);
+    }
+}
+
+
+.perspective__Vehicle__data__left svg:nth-of-type(2) {
+    left: 80%;
+    bottom: 0%;
+    width: 100px;
+    height: 100px;
+    box-shadow: 5px 5px 30px 15px rgba(1,253,235, 0.1), 
+    -5px -5px 30px 15px rgba(1,253,235, 0.22)
+}
