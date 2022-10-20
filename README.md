@@ -9,5 +9,5 @@ Fivem perspective speedometer
 
 in server.cfg
 ```
-ensure perspective-soeedomoterA
+ensure [Folder name]
 ```
